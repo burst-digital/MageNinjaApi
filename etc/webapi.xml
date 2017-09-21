@@ -8,4 +8,10 @@
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
+    <route url="/V1/catalog/products" method="GET">
+        <service class="Burst\ApiExtension\Api\ProductRepositoryInterface" method="getAllIds"/>
+        <resources>
+            <resource ref="Magento_Catalog::products" />
+        </resources>
+    </route>
 </routes>
