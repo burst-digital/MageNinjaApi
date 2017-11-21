@@ -1,6 +1,6 @@
 <?php
 
-namespace Burst\ApiExtension\Api;
+namespace Burst\MageNinjaApi\Api;
 
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Magento\Framework\App\ResourceConnection;

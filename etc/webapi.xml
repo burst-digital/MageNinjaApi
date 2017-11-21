@@ -2,14 +2,14 @@
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/products/id/:productId" method="GET">
+    <route url="/V1/mage_ninja/:productId" method="GET">
         <service class="Magento\Catalog\Api\ProductRepositoryInterface" method="getById"/>
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
-    <route url="/V1/catalog/products" method="GET">
-        <service class="Burst\ApiExtension\Api\ProductRepositoryInterface" method="getAllIds"/>
+    <route url="/V1/mage_ninja/products" method="GET">
+        <service class="Burst\MageNinjaApi\Api\ProductRepositoryInterface" method="getAllIds"/>
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Burst\ApiExtension\Api;
+namespace Burst\MageNinjaApi\Api;
 
 interface ProductRepositoryInterface {
 

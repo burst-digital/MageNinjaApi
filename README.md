@@ -1,1 +1,1 @@
-ApiExtension
+MageNinjaApi
