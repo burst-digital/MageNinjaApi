@@ -14,4 +14,10 @@
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
+    <route url="/V1/mage_ninja/guest-carts/:cartId/items" method="GET">
+        <service class="Burst\MageNinjaApi\Cart\Guest\CartItemRepositoryInterface" method="getItems" />
+        <resources>
+            <resource ref="Magento_Cart::cart" />
+        </resources>
+    </route>
 </routes>

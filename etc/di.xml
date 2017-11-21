@@ -2,4 +2,5 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Burst\MageNinjaApi\Product\ProductRepositoryInterface" type="Burst\MageNinjaApi\Product\ProductRepository" />
+    <preference for="Burst\MageNinjaApi\Cart\Guest\CartItemRepositoryInterface" type="Burst\MageNinjaApi\Cart\Guest\CartItemRepository" />
 </config>
