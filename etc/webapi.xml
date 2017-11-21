@@ -3,13 +3,13 @@
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
     <route url="/V1/mage_ninja/product/:productId" method="GET">
-        <service class="Magento\Catalog\Api\ProductRepositoryInterface" method="getById"/>
+        <service class="Magento\Catalog\Product\ProductRepositoryInterface" method="getById" />
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
     <route url="/V1/mage_ninja/products" method="GET">
-        <service class="Burst\MageNinjaApi\Api\ProductRepositoryInterface" method="getAllIds"/>
+        <service class="Burst\MageNinjaApi\Product\ProductRepositoryInterface" method="getAllIds" />
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>
