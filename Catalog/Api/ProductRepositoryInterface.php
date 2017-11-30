@@ -7,7 +7,7 @@ interface ProductRepositoryInterface {
   /**
    * Gets a list of all product IDs in the database.
    *
-   * @return array
+   * @return int[]
    *   All the product IDs
    */
   public function getAllIds();
