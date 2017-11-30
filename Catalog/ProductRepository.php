@@ -1,9 +1,10 @@
 <?php
 
-namespace Burst\MageNinjaApi\Product;
+namespace Burst\MageNinjaApi\Catalog;
 
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Magento\Framework\App\ResourceConnection;
+use Burst\MageNinjaApi\Catalog\Api\ProductRepositoryInterface;
 
 class ProductRepository implements ProductRepositoryInterface {
 

@@ -3,19 +3,19 @@
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
     <route url="/V1/mage_ninja/product/:productId" method="GET">
-        <service class="Magento\Catalog\Product\ProductRepositoryInterface" method="getById" />
+        <service class="Magento\Catalog\Catalog\Api\ProductRepositoryInterface" method="getById" />
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
     <route url="/V1/mage_ninja/products" method="GET">
-        <service class="Burst\MageNinjaApi\Product\ProductRepositoryInterface" method="getAllIds" />
+        <service class="Burst\MageNinjaApi\Catalog\Api\ProductRepositoryInterface" method="getAllIds" />
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
     <route url="/V1/mage_ninja/guest-carts/:cartId/items" method="GET">
-        <service class="Burst\MageNinjaApi\Cart\Guest\CartItemRepositoryInterface" method="getItems" />
+        <service class="Burst\MageNinjaApi\Quote\Api\GuestCartItemRepositoryInterface" method="getList" />
         <resources>
             <resource ref="Magento_Cart::cart" />
         </resources>
