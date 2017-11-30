@@ -10,18 +10,20 @@ interface CartItemInterface extends \Magento\Quote\Api\Data\CartItemInterface {
   /**
    * Constants defined for keys of array, makes typos less likely
    */
-  const KEY_ID = 'id';
+  const KEY_PRODCUCT_ID = 'product_id';
 
   /**
+   * Returns the product ID.
+   *
    * @return int
    */
-  public function getId();
+  public function getProductId();
 
   /**
-   * Sets the ID.
+   * Sets the product ID.
    *
    * @param int $id
    * @return $this
    */
-  public function setId($id);
+  public function setProductId($id);
 }
