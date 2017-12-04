@@ -4,22 +4,16 @@ namespace Burst\MageNinjaApi\Quote;
 
 use Magento\Catalog\Model\ProductFactory;
 use Magento\Quote\Api\CartItemRepositoryInterface;
-use Burst\MageNinjaApi\Quote\Api\Data\CartItemInterface;
 use Magento\Quote\Model\QuoteIdMask;
 use Magento\Quote\Model\QuoteIdMaskFactory;
 use Burst\MageNinjaApi\Quote\Api\GuestCartItemRepositoryInterface;
 
-class GuestCartItemRepository implements GuestCartItemRepositoryInterface
+class GuestCartItemRepository extends \Magento\Quote\Model\GuestCart\GuestCartItemRepository implements GuestCartItemRepositoryInterface
 {
   /**
    * @var \Magento\Quote\Api\CartItemRepositoryInterface
    */
   protected $repository;
-
-  /**
-   * @var QuoteIdMaskFactory
-   */
-  protected $quoteIdMaskFactory;
 
   /**
    * @var ProductFactory
@@ -38,29 +32,40 @@ class GuestCartItemRepository implements GuestCartItemRepositoryInterface
     QuoteIdMaskFactory $quoteIdMaskFactory,
     ProductFactory $productFactory
   ) {
-    $this->quoteIdMaskFactory = $quoteIdMaskFactory;
+    parent::__construct($repository, $quoteIdMaskFactory);
+
     $this->repository = $repository;
     $this->productFactory = $productFactory;
   }
 
   /**
-   * {@inheritdoc}
+   * List items that are assigned to a specified cart.
+   *
+   * @param string $cartId The cart ID.
+   * @return \Burst\MageNinjaApi\Quote\Api\Data\CartItemInterface[] Array of items.
+   * @throws \Magento\Framework\Exception\NoSuchEntityException The specified cart does not exist.
    */
   public function getList($cartId)
   {
     /** @var QuoteIdMask $quoteIdMask */
     $quoteIdMask = $this->quoteIdMaskFactory->create()->load($cartId, 'masked_id');
+
+    /** @var \Magento\Quote\Api\Data\CartItemInterface[] $cartItemList */
     $cartItemList = $this->repository->getList($quoteIdMask->getQuoteId());
 
+    /** @var \Burst\MageNinjaApi\Quote\Api\Data\CartItemInterface[] $newCartItemList */
+    $newCartItemList = [];
+
     foreach ($cartItemList as $item) {
-      /** @var CartItemInterface $item */
+      /** @var \Burst\MageNinjaApi\Quote\Item $item */
 
       $item->setQuoteId($quoteIdMask->getMaskedId());
       $product = $this->productFactory->create()->loadByAttribute('sku', $item->getSku());
-//      $item->setId($product->getId());
-      die($item->getItemId());
+      $item->setProductId($product->getId());
+
+      array_push($newCartItemList, $item);
     }
 
-    return $cartItemList;
+    return $newCartItemList;
   }
 }
