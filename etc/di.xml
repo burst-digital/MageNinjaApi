@@ -4,6 +4,8 @@
     <preference for="Burst\MageNinjaApi\Catalog\Api\ProductRepositoryInterface" type="Burst\MageNinjaApi\Catalog\ProductRepository" />
     <preference for="Burst\MageNinjaApi\Quote\Api\GuestCartItemRepositoryInterface" type="Burst\MageNinjaApi\Quote\GuestCartItemRepository" />
     <preference for="Burst\MageNinjaApi\Quote\Api\Data\CartItemInterface" type="Burst\MageNinjaApi\Quote\Item" />
+
+    <!-- Custom Logger -->
     <type name="Burst\MageNinjaApi\Logger\Handler\Debug">
         <arguments>
             <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
@@ -12,8 +14,8 @@
     <type name="Burst\MageNinjaApi\Logger\Logger">
         <arguments>
             <argument name="name" xsi:type="string">MageNinjaApiLogger</argument>
-            <argument name="handlers"  xsi:type="array">
-                <item name="system" xsi:type="object">Burst\MageNinjaApi\Logger\Handler\Debug</item>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">Burst\MageNinjaApi\Logger\Handler\Debug</item>
             </argument>
         </arguments>
     </type>
