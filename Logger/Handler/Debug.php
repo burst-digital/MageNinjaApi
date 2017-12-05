@@ -1,6 +1,6 @@
 <?php
 
-namespace Burst\MageNinjaApi\Logger;
+namespace Burst\MageNinjaApi\Logger\Handler;
 
 use Magento\Framework\Logger\Handler\Base;
 use Monolog\Logger;
