@@ -3,6 +3,7 @@
 namespace Burst\MageNinjaApi\Observer;
 
 use Burst\MageNinjaApi\Logger\Logger;
+use GuzzleHttp\Client;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 
@@ -32,5 +33,8 @@ class ProductSaveAfterObserver implements ObserverInterface {
     /** @var \Magento\Catalog\Model\Product $_product */
     $_product = $observer->getEvent()->getProduct();
 
-    $this->logger->debug($_product->getSku());
+    $this->logger->debug($_product->getId());
+
+    $client = new Client();
+
 }}
