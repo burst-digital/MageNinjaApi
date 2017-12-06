@@ -32,5 +32,5 @@ class ProductSaveAfterObserver implements ObserverInterface {
     /** @var \Magento\Catalog\Model\Product $_product */
     $_product = $observer->getEvent()->getProduct();
 
-    $this->logger->debug(print_r($_product->toArray(), true));
+    $this->logger->debug($_product->getSku());
 }}
