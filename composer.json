@@ -1,0 +1,24 @@
+{
+  "name": "burst/mage-ninja-api",
+  "description": "Magento 2 API to use with the MageNinja Drupal 8 extension",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Daniël Brekelmans",
+      "email": "daniel@burst-digital.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Burst\\MageNinjaApi\\": ""
+    }
+  }
+}
