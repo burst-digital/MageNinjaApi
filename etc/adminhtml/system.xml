@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+  <system>
+    <tab id="mageninja" translate="label" sortOrder="1000">
+      <label>MageNinja</label>
+    </tab>
+    <section id="configuration" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+      <class>separator-top</class>
+      <label>Configuration</label>
+      <tab>mageninja</tab>
+      <resource>Burst_MageNinjaApi::config</resource>
+      <group id="synchronisation" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+        <label>Product synchronisation</label>
+        <field id="url" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+          <label>Drupal base url</label>
+          <comment>The base url of the Drupal back-end application.</comment>
+        </field>
+        <field id="push" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+          <label>Enable push</label>
+          <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+          <comment>Pushes updated product data to Drupal when a product is saved.</comment>
+        </field>
+        <field id="delete" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+          <label>Enable delete [BETA]</label>
+          <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+          <comment>Deletes product data from Drupal when product is deleted.</comment>
+        </field>
+      </group>
+    </section>
+  </system>
+</config>
